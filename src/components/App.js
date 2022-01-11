@@ -29,8 +29,10 @@ function App() {
         const data = await Api.fetchImages({searchQuery, currentPage});
         //if(data?.hits.length < 11){return null;}
         console.log("object", data);
+        
         if (!data.hits.length) {
-          throw new Error("Sorry we can't find anything")
+          throw new Error("Sorry we can't find anything");
+          
         }
         if (data?.hits.length > 11) {
           setImages(prevImages => [...prevImages, ...data.hits]);
@@ -41,7 +43,7 @@ function App() {
 
       } catch (error) {
         setError(error.message);
-        // console.log(error);
+         console.log(error);
         // const result = await Api.fetchImages(currentPage, searchQuery);
         // console.log(result)
 

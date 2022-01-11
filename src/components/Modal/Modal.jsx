@@ -5,10 +5,12 @@ import { createPortal } from "react-dom";
 
 const modalRoot = document.querySelector("#modal-root");
 function Modal({ onClose, children }) {
-  useEffect(() => {
+  useEffect(
+    () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  });
+  }, []
+  );
 
   const handleKeyDown = (e) => {
     if (e.code === "Escape") {
@@ -21,7 +23,7 @@ function Modal({ onClose, children }) {
       onClose();
     }
   };
-
+console.log("modal");
   return createPortal(
     <div className={styles.Overlay} onClick={handleBackdropClick}>
       <div className={styles.modal}>{children}</div> 

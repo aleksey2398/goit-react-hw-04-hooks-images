@@ -12,11 +12,12 @@ const instance = axios.create({
   },
 });
 
-const fetchImages = ({page, query}) => {
+const fetchImages = ({searchQuery, currentPage}) => {
+  console.log(searchQuery, currentPage)
   return instance.get('/', {
     params: {
-      page,
-      q: query
+      page: currentPage,
+      q: searchQuery
     },
   })
   .then(response => response.data);
