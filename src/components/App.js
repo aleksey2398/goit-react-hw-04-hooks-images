@@ -32,7 +32,7 @@ function App() {
         
         if (!data.hits.length) {
           throw new Error("Sorry we can't find anything");
-          
+       
         }
         if (data?.hits.length > 11) {
           setImages(prevImages => [...prevImages, ...data.hits]);
